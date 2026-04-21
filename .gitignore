@@ -1,0 +1,9 @@
+# Claude Code local settings (contain API keys — never commit)
+.claude/
+
+# Figma raw exports
+figma_nodes.json
+home_desktop.jsx
+home_mobile.jsx
+partner_desktop.jsx
+partner_mobile.jsx
