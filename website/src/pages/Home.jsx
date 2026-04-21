@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 // background matches dark section, text + primary set to off-white so
 // Calendly's default blue headings render white instead
 const CALENDLY_URL =
-  'https://calendly.com/paintyourbarcelona/new-meeting?background_color=1e1a17&text_color=f2f1ee&primary_color=d87d56&hide_event_type_details=1&hide_gdpr_banner=1'
+  'https://calendly.com/paintyourbarcelona/new-meeting?hide_gdpr_banner=1'
 
 function CalendlyEmbed() {
   useEffect(() => {
@@ -25,11 +25,13 @@ function CalendlyEmbed() {
   }, [])
 
   return (
-    <div
-      className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
-      data-url={CALENDLY_URL}
-      style={{ minWidth: '320px', height: '900px' }}
-    />
+    <div className="rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
+      <div
+        className="calendly-inline-widget w-full"
+        data-url={CALENDLY_URL}
+        style={{ minWidth: '320px', height: '900px' }}
+      />
+    </div>
   )
 }
 
