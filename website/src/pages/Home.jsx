@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 // Replace CALENDLY_URL with your real Calendly link once your account is set up.
 // e.g. 'https://calendly.com/paintyourbarcelona/workshop'
 const CALENDLY_URL =
-  'https://calendly.com/paintyourbarcelona/workshop?background_color=1e1a17&text_color=f2f1ee&primary_color=954926'
+  'https://calendly.com/paintyourbarcelona/new-meeting?background_color=1e1a17&text_color=f2f1ee&primary_color=954926'
 
 function CalendlyEmbed() {
   useEffect(() => {
