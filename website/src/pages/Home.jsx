@@ -18,10 +18,14 @@ function CalendlyEmbed() {
     script.async = true
     document.body.appendChild(script)
 
-    // Remove the grey background Calendly's widget.css adds to the container
+    // Remove grey bg; hide internal iframe scrollbar
     const style = document.createElement('style')
     style.id = 'calendly-overrides'
-    style.innerHTML = `.calendly-inline-widget { background: transparent !important; }`
+    style.innerHTML = `
+      .calendly-inline-widget { background: transparent !important; }
+      .calendly-inline-widget iframe { scrollbar-width: none; }
+      .calendly-inline-widget iframe::-webkit-scrollbar { display: none; }
+    `
     document.head.appendChild(style)
 
     return () => {
@@ -32,12 +36,12 @@ function CalendlyEmbed() {
   }, [])
 
   return (
-    // Outer div clips ~80px off the bottom, hiding the timezone selector
+    {/* Outer div clips the bottom, hiding the timezone selector */}
     <div style={{ overflow: 'hidden', height: '740px', borderRadius: '1rem' }}>
       <div
         className="calendly-inline-widget w-full"
         data-url={CALENDLY_URL}
-        style={{ minWidth: '320px', height: '820px' }}
+        style={{ minWidth: '320px', height: '950px' }}
       />
     </div>
   )
