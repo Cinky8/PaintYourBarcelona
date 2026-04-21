@@ -258,8 +258,10 @@ export default function Partner() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">Description / Website</label>
-                <input type="url" placeholder="https://yourhostel.com" value={form.website} onChange={set('website')} className={inputCls} />
+                <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">
+                  Description / Website <span className="normal-case tracking-normal text-text-secondary/40">(optional)</span>
+                </label>
+                <input type="text" placeholder="https://yourhostel.com" value={form.website} onChange={set('website')} className={inputCls} />
               </div>
 
               <div className="flex flex-col gap-2">
