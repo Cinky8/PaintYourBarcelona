@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <p className="font-sans text-xs font-bold uppercase tracking-[0.1em] text-[#f2f1ee]/50">Connect</p>
             <div className="flex flex-col gap-3">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="font-sans text-sm text-[#f2f1ee]/80 hover:text-[#f2f1ee] transition-colors">Instagram</a>
+              <a href="https://www.instagram.com/paintyourbarcelona/" target="_blank" rel="noopener noreferrer" className="font-sans text-sm text-[#f2f1ee]/80 hover:text-[#f2f1ee] transition-colors">Instagram</a>
               <a href="#" className="font-sans text-sm text-[#f2f1ee]/80 hover:text-[#f2f1ee] transition-colors">City</a>
               <Link to="/partner" className="font-sans text-sm text-[#f2f1ee]/80 hover:text-[#f2f1ee] transition-colors">FAQ</Link>
               <a href="#" className="font-sans text-sm text-[#f2f1ee]/80 hover:text-[#f2f1ee] transition-colors">Privacy</a>

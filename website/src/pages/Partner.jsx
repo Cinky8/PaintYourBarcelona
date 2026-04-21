@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import images from '../images'
 
 // ── EmailJS config ─────────────────────────────────────────────────────────
 // Sign up at emailjs.com, connect your Gmail, create two templates, then
@@ -10,10 +11,6 @@ const EMAILJS_REPLY_TEMPLATE   = 'template_0nx07uq'
 const EMAILJS_PUBLIC_KEY       = 'ub6jtaQkyGrvKaqQG'
 // ──────────────────────────────────────────────────────────────────────────
 
-// Image assets from Figma MCP local server
-const hotelsIcon    = 'http://localhost:3845/assets/d22e932b74a0d0989c4972e50ceadd7e58beb89f.svg'
-const cafesIcon     = 'http://localhost:3845/assets/adf68e7703a4b46564ebcd905d7b9156c8723f85.svg'
-const corporateIcon = 'http://localhost:3845/assets/30e83e3daa3ee93430d092fcaf46aad38706a513.svg'
 
 const EMPTY_FORM = {
   name: '', email: '', location: '', phone: '',
@@ -98,10 +95,10 @@ export default function Partner() {
           {/* Right — image collage */}
           <div className="hidden lg:flex items-center justify-center relative h-[420px]">
             <div className="absolute top-0 right-0 w-[55%] h-[260px] bg-cream-alt rounded-xl shadow-lg overflow-hidden">
-              <div className="w-full h-full bg-[#dbdad7]" />
+              <img src={images.PartnerLanding1} alt="" className="w-full h-full object-cover" />
             </div>
             <div className="absolute bottom-0 left-0 w-[55%] h-[260px] bg-cream-alt rounded-xl shadow-lg overflow-hidden">
-              <div className="w-full h-full bg-[#ccc9c4]" />
+              <img src={images.PartnerLanding2} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -122,7 +119,7 @@ export default function Partner() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-cream rounded-2xl p-8 flex flex-col gap-5">
               <div className="size-14 rounded-xl bg-[#c2e6f0] flex items-center justify-center">
-                <img src={hotelsIcon} alt="Hotels" className="size-7 object-contain" />
+                <img src={images.OccasionsIcon1} alt="Hotels" className="size-7 object-contain" />
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="font-serif text-[22px] text-text-primary leading-snug">Hotels &amp; Guesthouses</h3>
@@ -138,7 +135,7 @@ export default function Partner() {
 
             <div className="bg-cream rounded-2xl p-8 flex flex-col gap-5">
               <div className="size-14 rounded-xl bg-orange flex items-center justify-center">
-                <img src={cafesIcon} alt="Cafés" className="size-7 object-contain" />
+                <img src={images.OccasionsIcon2} alt="Cafés" className="size-7 object-contain" />
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="font-serif text-[22px] text-text-primary leading-snug">Cafés &amp; Wine Bars</h3>
@@ -154,7 +151,7 @@ export default function Partner() {
 
             <div className="bg-cream rounded-2xl p-8 flex flex-col gap-5">
               <div className="size-14 rounded-xl bg-gold flex items-center justify-center">
-                <img src={corporateIcon} alt="Corporate" className="size-7 object-contain" />
+                <img src={images.OccasionsIcon3} alt="Corporate" className="size-7 object-contain" />
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="font-serif text-[22px] text-text-primary leading-snug">Corporate Team Building</h3>
@@ -176,10 +173,10 @@ export default function Partner() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div className="hidden lg:grid grid-cols-2 gap-4 h-[480px]">
             <div className="rounded-xl overflow-hidden bg-cream-alt shadow-md">
-              <div className="w-full h-full bg-[#ccc9c4]" />
+              <img src={images.Why1} alt="" className="w-full h-full object-cover" />
             </div>
             <div className="rounded-xl overflow-hidden bg-cream-alt shadow-md mt-10">
-              <div className="w-full h-full bg-[#dbdad7]" />
+              <img src={images.Why2} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
 

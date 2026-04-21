@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import images from '../images'
 
 // ── Calendly inline embed ──────────────────────────────────────────────────
 // background matches dark section, text + primary set to off-white so
@@ -47,14 +48,6 @@ function CalendlyEmbed() {
   )
 }
 
-// Image assets from Figma MCP local server
-const heroImg = 'http://localhost:3845/assets/0f640192477554facaf3b6a9ef18a0b871cbff5b.png'
-const sketchIcon = 'http://localhost:3845/assets/379b40ef23648a1e0f36939495e03126ec4bae56.svg'
-const paintIcon = 'http://localhost:3845/assets/e0cf518b0e02b7610c7c36992b3dcb31daf87243.svg'
-const souvenirIcon = 'http://localhost:3845/assets/5ad826333f3f0c36a27d7d156d242c6e0616326d.svg'
-const checkIcon = 'http://localhost:3845/assets/12840032243c4a2acb087da04b98565ad1c8c683.svg'
-const socialImg1 = 'http://localhost:3845/assets/c22de06935aa1c5a795a1b00c420d68a6353ffe0.svg'
-const socialImg2 = 'http://localhost:3845/assets/79907cc83c32c267521e62719ea141e501dfad43.svg'
 
 export default function Home() {
   return (
@@ -94,7 +87,7 @@ export default function Home() {
           <div className="relative hidden lg:block">
             <div className="absolute inset-[-4%_-8%_-7%_0%] bg-[rgba(197,232,243,0.3)] rounded-2xl -rotate-3" />
             <div className="relative rounded-xl overflow-hidden shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
-              <img src={heroImg} alt="Barcelona painting workshop" className="w-full h-full object-cover" />
+              <img src={images.Landing} alt="Barcelona painting workshop" className="w-full h-full object-cover" />
             </div>
             {/* Floating quote card */}
             <div className="absolute -bottom-10 -left-10 bg-white rounded-xl shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1)] p-6 max-w-[200px]">
@@ -122,7 +115,7 @@ export default function Home() {
             {/* Step 1 */}
             <div className="flex flex-col items-center text-center gap-4">
               <div className="mb-4 flex items-center justify-center rounded-full size-20 bg-[#c2e6f0]">
-                <img src={sketchIcon} alt="Sketching" className="w-7 h-6 object-contain" />
+                <img src={images.WorkshopIcon1} alt="Sketching" className="w-7 h-6 object-contain" />
               </div>
               <h3 className="font-serif text-2xl text-text-primary">Sketching</h3>
               <p className="font-sans text-base text-text-secondary leading-relaxed">
@@ -133,7 +126,7 @@ export default function Home() {
             {/* Step 2 */}
             <div className="flex flex-col items-center text-center gap-4">
               <div className="mb-4 flex items-center justify-center rounded-full size-20 bg-orange">
-                <img src={paintIcon} alt="Painting" className="w-7 h-7 object-contain" />
+                <img src={images.WorkshopIcon2} alt="Painting" className="w-7 h-7 object-contain" />
               </div>
               <h3 className="font-serif text-2xl text-text-primary">Painting</h3>
               <p className="font-sans text-base text-text-secondary leading-relaxed">
@@ -144,7 +137,7 @@ export default function Home() {
             {/* Step 3 */}
             <div className="flex flex-col items-center text-center gap-4">
               <div className="mb-4 flex items-center justify-center rounded-full size-20 bg-gold">
-                <img src={souvenirIcon} alt="Souvenir" className="w-8 h-8 object-contain" />
+                <img src={images.WorkshopIcon3} alt="Souvenir" className="w-8 h-8 object-contain" />
               </div>
               <h3 className="font-serif text-2xl text-text-primary">Souvenir</h3>
               <p className="font-sans text-base text-text-secondary leading-relaxed">
@@ -172,7 +165,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Testimonial 1 */}
             <div className="bg-cream-alt rounded-2xl p-8 flex flex-col gap-6">
-              <div className="bg-[#dbdad7] rounded-xl h-48 w-full" />
+              <div className="bg-[#dbdad7] rounded-xl h-48 w-full overflow-hidden">
+                <img src={images.TravelersPhoto1} alt="Marco's workshop" className="w-full h-full object-cover" />
+              </div>
               <div className="flex flex-col gap-4">
                 <p className="font-serif text-lg text-text-primary leading-[1.625]">
                   "Great experience, I went with some friends and we had a lot of fun. The teacher was very kind and helped us at all times. I recommend anyone that passes by Barcelona to go!"
@@ -191,7 +186,9 @@ export default function Home() {
 
             {/* Testimonial 2 */}
             <div className="bg-cream-alt rounded-2xl p-8 flex flex-col gap-6">
-              <div className="bg-[#dbdad7] rounded-xl h-48 w-full" />
+              <div className="bg-[#dbdad7] rounded-xl h-48 w-full overflow-hidden">
+                <img src={images.TravelersPhoto2} alt="Nicole's workshop" className="w-full h-full object-cover" />
+              </div>
               <div className="flex flex-col gap-4">
                 <p className="font-serif text-lg text-text-primary leading-[1.625]">
                   "I partecipated to a workshop with some friends and it was a really cool experience, I was able to fully express my creativity! Diana was very professional and patient."
@@ -210,7 +207,9 @@ export default function Home() {
 
             {/* Testimonial 3 */}
             <div className="bg-cream-alt rounded-2xl p-8 flex flex-col gap-6">
-              <div className="bg-[#dbdad7] rounded-xl h-48 w-full" />
+              <div className="bg-[#dbdad7] rounded-xl h-48 w-full overflow-hidden">
+                <img src={images.TravelersPhoto3} alt="Adam's workshop" className="w-full h-full object-cover" />
+              </div>
               <div className="flex flex-col gap-4">
                 <p className="font-serif text-lg text-text-primary leading-[1.625]">
                   "We joined the workshop on a rainy day during our trip and what a wonderful experience it was! Thanks to Diana's help I think all of us did pretty good job."
@@ -239,16 +238,16 @@ export default function Home() {
           {/* Gallery grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 h-[320px] md:h-[500px]">
             <div className="col-span-1 row-span-1 bg-cream-alt rounded-xl overflow-hidden md:col-start-1">
-              <div className="w-full h-full bg-[#dbdad7]" />
+              <img src={images.SocializePhoto1} alt="" className="w-full h-full object-cover" />
             </div>
             <div className="col-span-1 row-span-1 bg-cream-alt rounded-xl overflow-hidden md:mt-12">
-              <div className="w-full h-full bg-[#ccc9c4]" />
+              <img src={images.SocializePhoto2} alt="" className="w-full h-full object-cover" />
             </div>
             <div className="col-span-1 row-span-1 bg-cream-alt rounded-xl overflow-hidden">
-              <div className="w-full h-full bg-[#e0ddd8]" />
+              <img src={images.SocializePhoto3} alt="" className="w-full h-full object-cover" />
             </div>
             <div className="col-span-1 row-span-1 bg-cream-alt rounded-xl overflow-hidden md:mt-12">
-              <div className="w-full h-full bg-[#d0cdc7]" />
+              <img src={images.SocializePhoto4} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -272,10 +271,10 @@ export default function Home() {
       {/* ── FOR HOSTELS & VENUES ── */}
       <section className="bg-cream-alt px-8 py-20 md:py-24">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left image placeholder */}
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="w-full max-w-[480px] aspect-[4/3] bg-cream rounded-2xl flex items-center justify-center">
-              <div className="size-32 rounded-full border-2 border-dashed border-gold/40" />
+          {/* Left image */}
+          <div className="hidden lg:block">
+            <div className="w-full max-w-[480px] aspect-[4/3] bg-cream-alt rounded-2xl overflow-hidden shadow-md">
+              <img src={images.Venues} alt="Hostel workshop" className="w-full h-full object-cover" />
             </div>
           </div>
 
@@ -289,11 +288,11 @@ export default function Home() {
             </p>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <img src={checkIcon} alt="check" className="size-5 shrink-0" />
+                <span className="size-5 shrink-0 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xs font-bold">✓</span>
                 <span className="font-sans text-base text-text-primary">Fully mobile setup &amp; mess-free cleaning</span>
               </div>
               <div className="flex items-center gap-4">
-                <img src={checkIcon} alt="check" className="size-5 shrink-0" />
+                <span className="size-5 shrink-0 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xs font-bold">✓</span>
                 <span className="font-sans text-base text-text-primary">Authentic Barcelona vibes for your guests</span>
               </div>
             </div>
@@ -316,8 +315,8 @@ export default function Home() {
             Your Guide
           </p>
           {/* Circular avatar */}
-          <div className="size-32 md:size-40 rounded-full bg-cream-alt border-2 border-gold/30 flex items-center justify-center overflow-hidden">
-            <div className="size-full bg-[#dbdad7] rounded-full" />
+          <div className="size-32 md:size-40 rounded-full bg-cream-alt border-2 border-gold/30 overflow-hidden">
+            <img src={images.Guide} alt="Diana" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col gap-5 max-w-[580px]">
             <h2 className="font-serif text-4xl md:text-[48px] leading-[1] text-text-primary">
