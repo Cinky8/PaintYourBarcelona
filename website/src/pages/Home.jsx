@@ -36,7 +36,7 @@ function CalendlyEmbed() {
   }, [])
 
   return (
-    <div style={{ overflow: 'hidden', height: '740px', borderRadius: '1rem' }}>
+    <div style={{ borderRadius: '1rem', overflow: 'hidden' }}>
       <div
         className="calendly-inline-widget w-full"
         data-url={CALENDLY_URL}
