@@ -5,8 +5,8 @@ import emailjs from '@emailjs/browser'
 // Sign up at emailjs.com, connect your Gmail, create two templates, then
 // paste the IDs below. See the setup guide at the bottom of this file.
 const EMAILJS_SERVICE_ID       = 'service_5az77mg'
-const EMAILJS_NOTIFY_TEMPLATE  = 'template_0nx07uq'
-const EMAILJS_REPLY_TEMPLATE   = 'template_mf8wmjc'
+const EMAILJS_NOTIFY_TEMPLATE  = 'template_mf8wmjc'
+const EMAILJS_REPLY_TEMPLATE   = 'template_0nx07uq'
 const EMAILJS_PUBLIC_KEY       = 'ub6jtaQkyGrvKaqQG'
 // ──────────────────────────────────────────────────────────────────────────
 
