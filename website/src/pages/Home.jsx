@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 
 // ── Calendly popup ─────────────────────────────────────────────────────────
-const CALENDLY_URL = 'https://calendly.com/paintyourbarcelona/new-meeting'
+// background_color = dark section bg, text_color = off-white, primary_color = off-white
+// (makes the blue Calendly headings render white instead)
+const CALENDLY_URL =
+  'https://calendly.com/paintyourbarcelona/new-meeting?background_color=1e1a17&text_color=f2f1ee&primary_color=f2f1ee'
 
 function useCalendlyPopup() {
   useEffect(() => {
@@ -15,9 +18,29 @@ function useCalendlyPopup() {
     script.async = true
     document.body.appendChild(script)
 
+    // Make the popup tall enough so no scrollbar appears
+    const style = document.createElement('style')
+    style.id = 'calendly-overrides'
+    style.innerHTML = `
+      .calendly-popup {
+        height: 88vh !important;
+        max-height: 900px !important;
+      }
+      .calendly-popup-content {
+        height: 100% !important;
+      }
+      .calendly-popup-content iframe {
+        height: 100% !important;
+        min-height: 780px !important;
+      }
+    `
+    document.head.appendChild(style)
+
     return () => {
       if (document.head.contains(link)) document.head.removeChild(link)
       if (document.body.contains(script)) document.body.removeChild(script)
+      const s = document.getElementById('calendly-overrides')
+      if (s) s.remove()
     }
   }, [])
 
