@@ -115,7 +115,7 @@ export default function Home() {
             {/* Step 1 */}
             <div className="flex flex-col items-center text-center gap-4">
               <div className="mb-4 flex items-center justify-center rounded-full size-20 bg-[#c2e6f0]">
-                <img src={images.WorkshopIcon1} alt="Sketching" className="w-7 h-6 object-contain" />
+                <img src={images.WorkshopIcon1} alt="Sketching" className="w-7 h-6 object-contain" loading="lazy" decoding="async" />
               </div>
               <h3 className="font-serif text-2xl text-text-primary">Sketching</h3>
               <p className="font-sans text-base text-text-secondary leading-relaxed">
@@ -126,7 +126,7 @@ export default function Home() {
             {/* Step 2 */}
             <div className="flex flex-col items-center text-center gap-4">
               <div className="mb-4 flex items-center justify-center rounded-full size-20 bg-orange">
-                <img src={images.WorkshopIcon2} alt="Painting" className="w-7 h-7 object-contain" />
+                <img src={images.WorkshopIcon2} alt="Painting" className="w-7 h-7 object-contain" loading="lazy" decoding="async" />
               </div>
               <h3 className="font-serif text-2xl text-text-primary">Painting</h3>
               <p className="font-sans text-base text-text-secondary leading-relaxed">
@@ -137,7 +137,7 @@ export default function Home() {
             {/* Step 3 */}
             <div className="flex flex-col items-center text-center gap-4">
               <div className="mb-4 flex items-center justify-center rounded-full size-20 bg-gold">
-                <img src={images.WorkshopIcon3} alt="Souvenir" className="w-8 h-8 object-contain" />
+                <img src={images.WorkshopIcon3} alt="Souvenir" className="w-8 h-8 object-contain" loading="lazy" decoding="async" />
               </div>
               <h3 className="font-serif text-2xl text-text-primary">Souvenir</h3>
               <p className="font-sans text-base text-text-secondary leading-relaxed">
@@ -166,7 +166,7 @@ export default function Home() {
             {/* Testimonial 1 */}
             <div className="bg-cream-alt rounded-2xl p-8 flex flex-col gap-6">
               <div className="bg-[#dbdad7] rounded-xl h-48 w-full overflow-hidden">
-                <img src={images.TravelersPhoto1} alt="Marco's workshop" className="w-full h-full object-cover" />
+                <img src={images.TravelersPhoto1} alt="Marco's workshop" className="w-full h-full object-cover" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-4">
                 <p className="font-serif text-lg text-text-primary leading-[1.625]">
@@ -187,7 +187,7 @@ export default function Home() {
             {/* Testimonial 2 */}
             <div className="bg-cream-alt rounded-2xl p-8 flex flex-col gap-6">
               <div className="bg-[#dbdad7] rounded-xl h-48 w-full overflow-hidden">
-                <img src={images.TravelersPhoto2} alt="Nicole's workshop" className="w-full h-full object-cover" />
+                <img src={images.TravelersPhoto2} alt="Nicole's workshop" className="w-full h-full object-cover" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-4">
                 <p className="font-serif text-lg text-text-primary leading-[1.625]">
@@ -208,7 +208,7 @@ export default function Home() {
             {/* Testimonial 3 */}
             <div className="bg-cream-alt rounded-2xl p-8 flex flex-col gap-6">
               <div className="bg-[#dbdad7] rounded-xl h-48 w-full overflow-hidden">
-                <img src={images.TravelersPhoto3} alt="Adam's workshop" className="w-full h-full object-cover" />
+                <img src={images.TravelersPhoto3} alt="Adam's workshop" className="w-full h-full object-cover" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-4">
                 <p className="font-serif text-lg text-text-primary leading-[1.625]">
@@ -238,16 +238,16 @@ export default function Home() {
           {/* Gallery grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 h-[320px] md:h-[500px]">
             <div className="col-span-1 row-span-1 bg-cream-alt rounded-xl overflow-hidden md:col-start-1">
-              <img src={images.SocializePhoto1} alt="" className="w-full h-full object-cover" />
+              <img src={images.SocializePhoto1} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
             <div className="col-span-1 row-span-1 bg-cream-alt rounded-xl overflow-hidden md:mt-12">
-              <img src={images.SocializePhoto2} alt="" className="w-full h-full object-cover" />
+              <img src={images.SocializePhoto2} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
             <div className="col-span-1 row-span-1 bg-cream-alt rounded-xl overflow-hidden">
-              <img src={images.SocializePhoto3} alt="" className="w-full h-full object-cover" />
+              <img src={images.SocializePhoto3} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
             <div className="col-span-1 row-span-1 bg-cream-alt rounded-xl overflow-hidden md:mt-12">
-              <img src={images.SocializePhoto4} alt="" className="w-full h-full object-cover" />
+              <img src={images.SocializePhoto4} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -274,7 +274,7 @@ export default function Home() {
           {/* Left image */}
           <div className="hidden lg:block">
             <div className="w-full max-w-[480px] aspect-[4/3] bg-cream-alt rounded-2xl overflow-hidden shadow-md">
-              <img src={images.Venues} alt="Hostel workshop" className="w-full h-full object-cover" />
+              <img src={images.Venues} alt="Hostel workshop" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
 
@@ -316,7 +316,7 @@ export default function Home() {
           </p>
           {/* Circular avatar */}
           <div className="size-32 md:size-40 rounded-full bg-cream-alt border-2 border-gold/30 overflow-hidden">
-            <img src={images.Guide} alt="Diana" className="w-full h-full object-cover" />
+            <img src={images.Guide} alt="Diana" className="w-full h-full object-cover" loading="lazy" decoding="async" />
           </div>
           <div className="flex flex-col gap-5 max-w-[580px]">
             <h2 className="font-serif text-4xl md:text-[48px] leading-[1] text-text-primary">

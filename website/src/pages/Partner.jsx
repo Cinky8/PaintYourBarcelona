@@ -119,7 +119,7 @@ export default function Partner() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-cream rounded-2xl p-8 flex flex-col gap-5">
               <div className="size-14 rounded-xl bg-[#c2e6f0] flex items-center justify-center">
-                <img src={images.OccasionsIcon1} alt="Hotels" className="size-7 object-contain" />
+                <img src={images.OccasionsIcon1} alt="Hotels" className="size-7 object-contain" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="font-serif text-[22px] text-text-primary leading-snug">Hotels &amp; Guesthouses</h3>
@@ -135,7 +135,7 @@ export default function Partner() {
 
             <div className="bg-cream rounded-2xl p-8 flex flex-col gap-5">
               <div className="size-14 rounded-xl bg-orange flex items-center justify-center">
-                <img src={images.OccasionsIcon2} alt="Cafés" className="size-7 object-contain" />
+                <img src={images.OccasionsIcon2} alt="Cafés" className="size-7 object-contain" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="font-serif text-[22px] text-text-primary leading-snug">Cafés &amp; Wine Bars</h3>
@@ -151,7 +151,7 @@ export default function Partner() {
 
             <div className="bg-cream rounded-2xl p-8 flex flex-col gap-5">
               <div className="size-14 rounded-xl bg-gold flex items-center justify-center">
-                <img src={images.OccasionsIcon3} alt="Corporate" className="size-7 object-contain" />
+                <img src={images.OccasionsIcon3} alt="Corporate" className="size-7 object-contain" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-3">
                 <h3 className="font-serif text-[22px] text-text-primary leading-snug">Corporate Team Building</h3>
@@ -173,10 +173,10 @@ export default function Partner() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div className="hidden lg:grid grid-cols-2 gap-4 h-[480px]">
             <div className="rounded-xl overflow-hidden bg-cream-alt shadow-md">
-              <img src={images.Why1} alt="" className="w-full h-full object-cover" />
+              <img src={images.Why1} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
             <div className="rounded-xl overflow-hidden bg-cream-alt shadow-md mt-10">
-              <img src={images.Why2} alt="" className="w-full h-full object-cover" />
+              <img src={images.Why2} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
 
