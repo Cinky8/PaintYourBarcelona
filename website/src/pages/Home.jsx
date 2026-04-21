@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 // ── Calendly inline embed ──────────────────────────────────────────────────
 // background matches dark section, text + primary set to off-white so
@@ -80,12 +81,12 @@ export default function Home() {
               Join us for a unique postcard painting workshop in the heart of Barcelona.
             </p>
             <div className="pt-2">
-              <a
-                href="#reserve"
-                className="inline-block bg-terracotta text-white font-sans font-bold text-base px-10 py-4 rounded-lg shadow-sm hover:bg-terracotta/90 transition-colors"
+              <button
+                onClick={() => document.getElementById('reserve')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-terracotta text-white font-sans font-bold text-base px-10 py-4 rounded-lg shadow-sm hover:bg-terracotta/90 transition-colors"
               >
                 Join a Workshop
-              </a>
+              </button>
             </div>
           </div>
 
@@ -297,12 +298,12 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <a
-                href="/partner"
+              <Link
+                to="/partner"
                 className="inline-block font-sans font-bold text-sm text-terracotta border-b border-terracotta pb-0.5 hover:opacity-70 transition-opacity"
               >
                 Learn more →
-              </a>
+              </Link>
             </div>
           </div>
         </div>

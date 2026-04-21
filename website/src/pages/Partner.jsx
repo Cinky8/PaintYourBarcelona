@@ -28,12 +28,12 @@ export default function Partner() {
               From hostels to team buildings we curate experiences that linger long after the paint has dried.
             </p>
             <div className="pt-2">
-              <a
-                href="#contact"
-                className="inline-block bg-terracotta text-white font-sans font-bold text-base px-8 py-4 rounded-lg shadow-sm hover:bg-terracotta/90 transition-colors"
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-terracotta text-white font-sans font-bold text-base px-8 py-4 rounded-lg shadow-sm hover:bg-terracotta/90 transition-colors"
               >
                 Start a Conversation
-              </a>
+              </button>
             </div>
           </div>
 
@@ -192,10 +192,28 @@ export default function Partner() {
                 />
               </div>
               <div className="flex flex-col gap-2">
+                <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">Email Address</label>
+                <input
+                  type="email"
+                  placeholder="hello@yourvenue.com"
+                  className="bg-cream border border-cream-alt rounded-lg px-4 py-4 text-base text-text-primary placeholder-text-secondary/40 font-sans outline-none focus:border-terracotta/40 transition-colors shadow-sm"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-col gap-2">
                 <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">Full Location</label>
                 <input
                   type="text"
                   placeholder="Barcelona, Spain"
+                  className="bg-cream border border-cream-alt rounded-lg px-4 py-4 text-base text-text-primary placeholder-text-secondary/40 font-sans outline-none focus:border-terracotta/40 transition-colors shadow-sm"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">Your Number</label>
+                <input
+                  type="tel"
+                  placeholder="+34 600 000 000"
                   className="bg-cream border border-cream-alt rounded-lg px-4 py-4 text-base text-text-primary placeholder-text-secondary/40 font-sans outline-none focus:border-terracotta/40 transition-colors shadow-sm"
                 />
               </div>
@@ -208,24 +226,24 @@ export default function Partner() {
                 className="bg-cream border border-cream-alt rounded-lg px-4 py-4 text-base text-text-primary placeholder-text-secondary/40 font-sans outline-none focus:border-terracotta/40 transition-colors shadow-sm"
               />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
-                <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">Event / Activity Type</label>
-                <select className="bg-cream border border-cream-alt rounded-lg px-4 py-4 text-base text-text-primary font-sans outline-none focus:border-terracotta/40 transition-colors shadow-sm appearance-none">
-                  <option>Hosting &amp; Guesthouses</option>
-                  <option>Cafés &amp; Wine Bars</option>
-                  <option>Corporate Team Building</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div className="flex flex-col gap-2">
-                <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">Your Number</label>
-                <input
-                  type="tel"
-                  placeholder="+34 600 000 000"
-                  className="bg-cream border border-cream-alt rounded-lg px-4 py-4 text-base text-text-primary placeholder-text-secondary/40 font-sans outline-none focus:border-terracotta/40 transition-colors shadow-sm"
-                />
-              </div>
+            <div className="flex flex-col gap-2">
+              <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">Event / Activity Type</label>
+              <select className="bg-cream border border-cream-alt rounded-lg px-4 py-4 text-base text-text-primary font-sans outline-none focus:border-terracotta/40 transition-colors shadow-sm appearance-none">
+                <option>Hosting &amp; Guesthouses</option>
+                <option>Cafés &amp; Wine Bars</option>
+                <option>Corporate Team Building</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="font-sans text-xs uppercase tracking-[0.1em] text-text-secondary/70">
+                Anything else you'd like to add? <span className="normal-case tracking-normal text-text-secondary/40">(optional)</span>
+              </label>
+              <textarea
+                rows={4}
+                placeholder="Tell us about your space, expected group size, preferred dates, or any other details..."
+                className="bg-cream border border-cream-alt rounded-lg px-4 py-4 text-base text-text-primary placeholder-text-secondary/40 font-sans outline-none focus:border-terracotta/40 transition-colors shadow-sm resize-none"
+              />
             </div>
             <div className="pt-4">
               <button

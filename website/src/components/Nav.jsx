@@ -7,6 +7,13 @@ export default function Nav() {
   const { pathname } = useLocation()
   const isPartner = pathname === '/partner'
 
+  const scrollToSection = (id) => {
+    setOpen(false)
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }, 50)
+  }
+
   // Close menu on route change
   useEffect(() => setOpen(false), [pathname])
 
@@ -44,12 +51,12 @@ export default function Nav() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Link
-            to={isPartner ? '#contact' : '#reserve'}
+          <button
+            onClick={() => scrollToSection(isPartner ? 'contact' : 'reserve')}
             className="bg-terracotta text-white font-sans font-bold text-sm px-6 py-3 rounded-lg hover:bg-terracotta/90 transition-colors shadow-sm"
           >
-            {isPartner ? 'Reserve Spot' : 'Book Workshop'}
-          </Link>
+            {isPartner ? 'Book Workshop' : 'Reserve Spot'}
+          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -84,13 +91,12 @@ export default function Nav() {
           >
             Become a partner
           </Link>
-          <Link
-            to={isPartner ? '#contact' : '#reserve'}
-            className="mt-3 bg-terracotta text-white font-bold text-sm px-6 py-3 rounded-lg text-center"
-            onClick={() => setOpen(false)}
+          <button
+            className="mt-3 bg-terracotta text-white font-bold text-sm px-6 py-3 rounded-lg text-center w-full"
+            onClick={() => scrollToSection(isPartner ? 'contact' : 'reserve')}
           >
-            {isPartner ? 'Reserve Spot' : 'Book Workshop'}
-          </Link>
+            {isPartner ? 'Book Workshop' : 'Reserve Spot'}
+          </button>
         </div>
       </div>
     </nav>
