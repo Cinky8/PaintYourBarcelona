@@ -4,10 +4,10 @@ import emailjs from '@emailjs/browser'
 // ── EmailJS config ─────────────────────────────────────────────────────────
 // Sign up at emailjs.com, connect your Gmail, create two templates, then
 // paste the IDs below. See the setup guide at the bottom of this file.
-const EMAILJS_SERVICE_ID       = 'YOUR_SERVICE_ID'
-const EMAILJS_NOTIFY_TEMPLATE  = 'YOUR_NOTIFY_TEMPLATE_ID'  // → paintyourbarcelona@gmail.com
-const EMAILJS_REPLY_TEMPLATE   = 'YOUR_REPLY_TEMPLATE_ID'   // → auto-reply to user
-const EMAILJS_PUBLIC_KEY       = 'YOUR_PUBLIC_KEY'
+const EMAILJS_SERVICE_ID       = 'service_5az77mg'
+const EMAILJS_NOTIFY_TEMPLATE  = 'template_0nx07uq'
+const EMAILJS_REPLY_TEMPLATE   = 'template_mf8wmjc'
+const EMAILJS_PUBLIC_KEY       = 'ub6jtaQkyGrvKaqQG'
 // ──────────────────────────────────────────────────────────────────────────
 
 // Image assets from Figma MCP local server
