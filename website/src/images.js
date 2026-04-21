@@ -6,8 +6,7 @@
 //  extension next to the relevant name.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const base = import.meta.env.BASE_URL + 'images/'
-const img  = (name) => base + name
+const img = (name) => `/images/${name}`
 
 const images = {
 
