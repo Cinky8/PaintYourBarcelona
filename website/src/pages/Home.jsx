@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 // background matches dark section, text + primary set to off-white so
 // Calendly's default blue headings render white instead
 const CALENDLY_URL =
-  'https://calendly.com/paintyourbarcelona/new-meeting?background_color=1e1a17&text_color=f2f1ee&primary_color=f2f1ee'
+  'https://calendly.com/paintyourbarcelona/new-meeting?background_color=1e1a17&text_color=f2f1ee&primary_color=d87d56&hide_event_type_details=1&hide_gdpr_banner=1'
 
 function CalendlyEmbed() {
   useEffect(() => {
