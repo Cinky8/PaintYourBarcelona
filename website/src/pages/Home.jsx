@@ -18,18 +18,26 @@ function CalendlyEmbed() {
     script.async = true
     document.body.appendChild(script)
 
+    // Remove the grey background Calendly's widget.css adds to the container
+    const style = document.createElement('style')
+    style.id = 'calendly-overrides'
+    style.innerHTML = `.calendly-inline-widget { background: transparent !important; }`
+    document.head.appendChild(style)
+
     return () => {
       if (document.head.contains(link)) document.head.removeChild(link)
       if (document.body.contains(script)) document.body.removeChild(script)
+      document.getElementById('calendly-overrides')?.remove()
     }
   }, [])
 
   return (
-    <div className="rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
+    // Outer div clips ~80px off the bottom, hiding the timezone selector
+    <div style={{ overflow: 'hidden', height: '740px', borderRadius: '1rem' }}>
       <div
         className="calendly-inline-widget w-full"
         data-url={CALENDLY_URL}
-        style={{ minWidth: '320px', height: '900px' }}
+        style={{ minWidth: '320px', height: '820px' }}
       />
     </div>
   )
