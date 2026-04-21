@@ -55,7 +55,7 @@ export default function Nav() {
             onClick={() => scrollToSection(isPartner ? 'contact' : 'reserve')}
             className="bg-terracotta text-white font-sans font-bold text-sm px-6 py-3 rounded-lg hover:bg-terracotta/90 transition-colors shadow-sm"
           >
-            {isPartner ? 'Book Workshop' : 'Reserve Spot'}
+            {isPartner ? 'Book a Workshop' : 'Reserve Spot'}
           </button>
         </div>
 
@@ -95,7 +95,7 @@ export default function Nav() {
             className="mt-3 bg-terracotta text-white font-bold text-sm px-6 py-3 rounded-lg text-center w-full"
             onClick={() => scrollToSection(isPartner ? 'contact' : 'reserve')}
           >
-            {isPartner ? 'Book Workshop' : 'Reserve Spot'}
+            {isPartner ? 'Book a Workshop' : 'Reserve Spot'}
           </button>
         </div>
       </div>
