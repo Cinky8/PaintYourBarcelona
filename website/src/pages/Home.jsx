@@ -1,20 +1,15 @@
 import { useEffect } from 'react'
 
-// ── Calendly inline embed ──────────────────────────────────────────────────
-// Replace CALENDLY_URL with your real Calendly link once your account is set up.
-// e.g. 'https://calendly.com/paintyourbarcelona/workshop'
-const CALENDLY_URL =
-  'https://calendly.com/paintyourbarcelona/new-meeting?background_color=1e1a17&text_color=f2f1ee&primary_color=954926'
+// ── Calendly popup ─────────────────────────────────────────────────────────
+const CALENDLY_URL = 'https://calendly.com/paintyourbarcelona/new-meeting'
 
-function CalendlyEmbed() {
+function useCalendlyPopup() {
   useEffect(() => {
-    // Inject Calendly stylesheet
     const link = document.createElement('link')
     link.href = 'https://assets.calendly.com/assets/external/widget.css'
     link.rel = 'stylesheet'
     document.head.appendChild(link)
 
-    // Inject Calendly script
     const script = document.createElement('script')
     script.src = 'https://assets.calendly.com/assets/external/widget.js'
     script.async = true
@@ -26,13 +21,11 @@ function CalendlyEmbed() {
     }
   }, [])
 
-  return (
-    <div
-      className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
-      data-url={CALENDLY_URL}
-      style={{ minWidth: '320px', height: '700px' }}
-    />
-  )
+  return () => {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL })
+    }
+  }
 }
 
 // Image assets from Figma MCP local server
@@ -45,6 +38,8 @@ const socialImg1 = 'http://localhost:3845/assets/c22de06935aa1c5a795a1b00c420d68
 const socialImg2 = 'http://localhost:3845/assets/79907cc83c32c267521e62719ea141e501dfad43.svg'
 
 export default function Home() {
+  const openCalendly = useCalendlyPopup()
+
   return (
     <main className="pt-[92px]">
 
@@ -244,19 +239,107 @@ export default function Home() {
 
       {/* ── RESERVE YOUR SPOT ── */}
       <section id="reserve" className="bg-dark px-8 py-24 md:py-32">
-        <div className="max-w-[860px] mx-auto flex flex-col gap-12">
+        <div className="max-w-[1280px] mx-auto">
           {/* Heading */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 mb-16">
             <h2 className="font-serif text-4xl md:text-[48px] leading-[1] text-[#f2f1ee]">
               Reserve your spot
             </h2>
             <p className="font-sans text-base text-[#f2f1ee]/60">
-              Pick a date and time that works for you — you'll get an instant confirmation email.
+              Book your spot quickly and easily, just fill in the form.
             </p>
           </div>
 
-          {/* Calendly inline widget */}
-          <CalendlyEmbed />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Calendar */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="font-sans font-bold text-[#f2f1ee] text-base">October 2024</h3>
+                <div className="flex gap-2">
+                  <button className="text-[#f2f1ee]/60 hover:text-[#f2f1ee] text-lg px-2">‹</button>
+                  <button className="text-[#f2f1ee]/60 hover:text-[#f2f1ee] text-lg px-2">›</button>
+                </div>
+              </div>
+              <div className="grid grid-cols-7 gap-1 mb-3">
+                {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => (
+                  <div key={d} className="text-center text-xs font-bold text-[#f2f1ee]/40 uppercase py-2">{d}</div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 gap-1">
+                {[null, null].map((_, i) => <div key={`e-${i}`} />)}
+                {Array.from({ length: 31 }, (_, i) => i + 1).map(day => {
+                  const hasWorkshop = [4, 11, 18, 25].includes(day)
+                  const isSelected = day === 18
+                  return (
+                    <button
+                      key={day}
+                      className={`aspect-square flex flex-col items-center justify-center rounded-full text-base font-sans relative transition-colors
+                        ${isSelected
+                          ? 'bg-[rgba(149,73,38,0.4)] border border-terracotta text-white font-bold'
+                          : hasWorkshop
+                            ? 'bg-[rgba(149,73,38,0.2)] border border-[rgba(149,73,38,0.4)] text-[#f2f1ee] hover:bg-[rgba(149,73,38,0.3)]'
+                            : 'text-[#f2f1ee]/70 hover:bg-white/5'
+                        }`}
+                    >
+                      {day}
+                      {hasWorkshop && <span className="absolute bottom-[3px] size-1 rounded-full bg-[#ffdbcd]" />}
+                    </button>
+                  )
+                })}
+              </div>
+              <div className="flex items-center gap-2 mt-6 opacity-80">
+                <div className="size-3 rounded-full bg-[rgba(149,73,38,0.2)] border border-[rgba(149,73,38,0.4)]" />
+                <span className="font-sans text-sm text-[#f2f1ee]">Available Workshops</span>
+              </div>
+            </div>
+
+            {/* Form */}
+            <div className="bg-[rgba(227,226,224,0.1)] border border-white/5 rounded-2xl px-10 py-10 shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-2">
+                  <label className="font-sans text-xs uppercase tracking-[0.1em] text-[#f2f1ee]/60">Full Name</label>
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-base text-[#f2f1ee] placeholder-[#6b7280] font-sans outline-none focus:border-orange/40 transition-colors"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="font-sans text-xs uppercase tracking-[0.1em] text-[#f2f1ee]/60">Email Address</label>
+                  <input
+                    type="email"
+                    placeholder="hello@example.com"
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-base text-[#f2f1ee] placeholder-[#6b7280] font-sans outline-none focus:border-orange/40 transition-colors"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="font-sans text-xs uppercase tracking-[0.1em] text-[#f2f1ee]/60">Preferred Date</label>
+                  <input
+                    type="text"
+                    placeholder="Oct 18, 2024"
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-base text-[#f2f1ee] placeholder-[#6b7280] font-sans outline-none focus:border-orange/40 transition-colors"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="font-sans text-xs uppercase tracking-[0.1em] text-[#f2f1ee]/60">Message</label>
+                  <textarea
+                    rows={4}
+                    placeholder="Any special requests or details about your group?"
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-base text-[#f2f1ee] placeholder-[#6b7280] font-sans outline-none focus:border-orange/40 transition-colors resize-none"
+                  />
+                </div>
+                <div className="pt-4">
+                  <button
+                    type="button"
+                    onClick={openCalendly}
+                    className="w-full bg-orange hover:bg-orange/90 text-[#541b00] font-sans font-bold text-base py-4 rounded-lg shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1)] transition-colors"
+                  >
+                    Book Your Spot
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
