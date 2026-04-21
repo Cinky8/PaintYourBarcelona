@@ -36,7 +36,6 @@ function CalendlyEmbed() {
   }, [])
 
   return (
-    {/* Outer div clips the bottom, hiding the timezone selector */}
     <div style={{ overflow: 'hidden', height: '740px', borderRadius: '1rem' }}>
       <div
         className="calendly-inline-widget w-full"
