@@ -2,48 +2,96 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import images from '../images'
 
-// ── Calendly inline embed ──────────────────────────────────────────────────
-// background matches dark section, text + primary set to off-white so
-// Calendly's default blue headings render white instead
-const CALENDLY_URL =
-  'https://calendly.com/paintyourbarcelona/new-meeting?hide_gdpr_banner=1'
-
-function CalendlyEmbed() {
+// ── Cal.com popup booking ──────────────────────────────────────────────────
+function BookingSection() {
   useEffect(() => {
-    const link = document.createElement('link')
-    link.href = 'https://assets.calendly.com/assets/external/widget.css'
-    link.rel = 'stylesheet'
-    document.head.appendChild(link)
-
-    const script = document.createElement('script')
-    script.src = 'https://assets.calendly.com/assets/external/widget.js'
-    script.async = true
-    document.body.appendChild(script)
-
-    // Remove grey bg; hide internal iframe scrollbar
-    const style = document.createElement('style')
-    style.id = 'calendly-overrides'
-    style.innerHTML = `
-      .calendly-inline-widget { background: transparent !important; }
-      .calendly-inline-widget iframe { scrollbar-width: none; }
-      .calendly-inline-widget iframe::-webkit-scrollbar { display: none; }
-    `
-    document.head.appendChild(style)
-
-    return () => {
-      if (document.head.contains(link)) document.head.removeChild(link)
-      if (document.body.contains(script)) document.body.removeChild(script)
-      document.getElementById('calendly-overrides')?.remove()
-    }
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar) }
+      let d = C.document
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal; let ar = arguments
+        if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true }
+        if (ar[0] === L) { const api = function () { p(api, arguments) }; const ns = ar[1]; api.q = api.q || []; typeof ns === 'string' ? (cal.ns[ns] = api) && p(api, ar) : p(cal, ar); return }
+        p(cal, ar)
+      }
+    })(window, 'https://app.cal.com/embed/embed.js', 'init')
+    window.Cal('init', 'workshop', { origin: 'https://cal.com' })
+    window.Cal.ns.workshop('ui', { theme: 'light', layout: 'month_view' })
   }, [])
 
+  const details = [
+    { label: 'Duration', value: '1 h 30 min' },
+    { label: 'Location', value: 'Barcelona city centre' },
+    { label: 'Group size', value: 'Up to 10 people' },
+    { label: 'Materials', value: 'Everything provided' },
+  ]
+
+  const includes = [
+    'Pencils, acrylic paints & postcard',
+    'Step-by-step guidance from Diana',
+    'Your hand-painted souvenir to keep',
+    'Instant email confirmation',
+  ]
+
   return (
-    <div style={{ borderRadius: '1rem', overflow: 'hidden' }}>
-      <div
-        className="calendly-inline-widget w-full"
-        data-url={CALENDLY_URL}
-        style={{ minWidth: '320px', height: '950px' }}
-      />
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+      {/* Left — Workshop details */}
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
+          <span className="font-sans font-bold text-xs uppercase tracking-[0.2em] text-terracotta">
+            Postcards Workshop
+          </span>
+          <p className="font-sans text-lg text-[#f2f1ee]/60 leading-relaxed">
+            A 90-minute hands-on session where you sketch and paint your own postcard of Barcelona's most iconic landmarks — no experience needed.
+          </p>
+        </div>
+
+        <div className="flex flex-col">
+          {details.map(({ label, value }, i) => (
+            <div
+              key={label}
+              className={`flex items-center justify-between py-4 ${i < details.length - 1 ? 'border-b border-white/10' : ''}`}
+            >
+              <span className="font-sans text-sm text-[#f2f1ee]/40">{label}</span>
+              <span className="font-sans text-sm text-[#f2f1ee]">{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right — Booking card */}
+      <div className="bg-white/[0.06] border border-white/10 rounded-2xl p-8 flex flex-col gap-6">
+        <div className="flex flex-col gap-1">
+          <p className="font-sans text-sm text-[#f2f1ee]/40">What's included</p>
+        </div>
+        <div className="flex flex-col gap-3">
+          {includes.map(item => (
+            <div key={item} className="flex items-start gap-3">
+              <span className="mt-0.5 size-4 shrink-0 rounded-full bg-terracotta/25 flex items-center justify-center">
+                <span className="text-terracotta text-[9px] font-bold leading-none">✓</span>
+              </span>
+              <span className="font-sans text-sm text-[#f2f1ee]/70 leading-relaxed">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="h-px bg-white/10" />
+
+        <button
+          data-cal-link="paint-your-barcelona-jxwpul/workshop"
+          data-cal-namespace="workshop"
+          data-cal-config='{"layout":"month_view"}'
+          className="w-full bg-terracotta text-white font-sans font-bold text-base px-8 py-4 rounded-xl hover:bg-terracotta/90 transition-colors cursor-pointer"
+        >
+          Pick a date →
+        </button>
+
+        <p className="font-sans text-xs text-[#f2f1ee]/25 text-center">
+          Powered by Cal.com · Instant confirmation
+        </p>
+      </div>
+
     </div>
   )
 }
@@ -264,7 +312,7 @@ export default function Home() {
               Pick a date and time — you'll get an instant confirmation email.
             </p>
           </div>
-          <CalendlyEmbed />
+          <BookingSection />
         </div>
       </section>
 
