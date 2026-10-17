@@ -9,10 +9,13 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "set-password": "node scripts/set-admin-password.js",
+    "set-email-password": "node scripts/set-email-password.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "nodemailer": "^7.0.13",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.1"

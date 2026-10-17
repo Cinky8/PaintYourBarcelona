@@ -1,17 +1,26 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+
+const LINKS = [
+  { to: '/', label: 'Home' },
+  { to: '/events', label: 'Next Events' },
+  { to: '/partner', label: 'Become a partner' },
+]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { pathname } = useLocation()
+  const navigate = useNavigate()
   const isPartner = pathname === '/partner'
 
   const scrollToSection = (id) => {
     setOpen(false)
+    const onPage = !!document.getElementById(id)
+    if (!onPage) navigate('/')
     setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    }, 50)
+    }, onPage ? 50 : 300)
   }
 
   // Close menu on route change
@@ -35,18 +44,15 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-10">
-          <Link
-            to="/"
-            className={`font-sans text-sm font-medium transition-colors ${!isPartner ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary'}`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/partner"
-            className={`font-sans text-sm font-medium transition-colors ${isPartner ? 'text-text-primary border-b border-text-primary pb-0.5' : 'text-text-secondary hover:text-text-primary'}`}
-          >
-            Become a partner
-          </Link>
+          {LINKS.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className={`font-sans text-sm font-medium transition-colors ${pathname === to ? 'text-text-primary border-b border-text-primary pb-0.5' : 'text-text-secondary hover:text-text-primary'}`}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* Desktop CTA */}
@@ -75,22 +81,18 @@ export default function Nav() {
       </div>
 
       {/* Mobile menu — slides down with max-height animation */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-56' : 'max-h-0'}`}>
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-80' : 'max-h-0'}`}>
         <div className="bg-cream border-t border-cream-alt px-8 pt-4 pb-6 flex flex-col gap-1">
-          <Link
-            to="/"
-            className="font-sans text-text-primary font-medium text-base py-3 border-b border-cream-alt"
-            onClick={() => setOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            to="/partner"
-            className="font-sans text-text-primary font-medium text-base py-3 border-b border-cream-alt"
-            onClick={() => setOpen(false)}
-          >
-            Become a partner
-          </Link>
+          {LINKS.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className="font-sans text-text-primary font-medium text-base py-3 border-b border-cream-alt"
+              onClick={() => setOpen(false)}
+            >
+              {label}
+            </Link>
+          ))}
           <button
             className="mt-3 bg-terracotta text-white font-bold text-sm px-6 py-3 rounded-lg text-center w-full"
             onClick={() => scrollToSection(isPartner ? 'contact' : 'reserve')}

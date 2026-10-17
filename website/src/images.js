@@ -42,6 +42,10 @@ const images = {
   Why1:             img('Why1.jpg'),              // Why Partner — left column top
   Why2:             img('Why2.jpg'),              // Why Partner — left column bottom
 
+  // ── Next Events ───────────────────────────────────────────────────────────
+
+  EventsHero:       img('EventsHero.jpg'),        // Banner behind the "Next Events" title
+
 }
 
 export default images
