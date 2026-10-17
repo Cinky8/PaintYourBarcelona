@@ -69,9 +69,12 @@ function organizerNotice(event, booking, updated) {
   }
 }
 
+const clean = (v) => (v || '').trim().replace(/^["']|["']$/g, '')
+
 function transport() {
-  const user = process.env.SMTP_USER
-  const pass = process.env.SMTP_PASS
+  const user = clean(process.env.SMTP_USER)
+  // Google shows App Passwords with spaces ("abcd efgh ..."); they are never part of the password.
+  const pass = clean(process.env.SMTP_PASS).replace(/\s+/g, '')
   if (!user || !pass) return null
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
@@ -83,7 +86,7 @@ function transport() {
 
 export async function sendBookingEmails(event, booking, updated) {
   const organizer = organizerEmail()
-  const from = `"${ORGANIZER_NAME}" <${process.env.SMTP_USER || organizer}>`
+  const from = `"${ORGANIZER_NAME}" <${clean(process.env.SMTP_USER) || organizer}>`
   const guest = guestEmail(event, booking)
   const notice = organizerNotice(event, booking, updated)
 
