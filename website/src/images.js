@@ -33,14 +33,13 @@ const images = {
   // ── Become a Partner ──────────────────────────────────────────────────────
 
   PartnerLanding1:  img('PartnerLanding1.jpg'),   // Hero collage — top-right
-  PartnerLanding2:  img('PartnerLanding2.jpg'),   // Hero collage — bottom-left
-
-  OccasionsIcon1:   img('OccasionsIcon1.png'),    // Hotels & Guesthouses icon
-  OccasionsIcon2:   img('OccasionsIcon2.png'),    // Cafés & Wine Bars icon
-  OccasionsIcon3:   img('OccasionsIcon3.png'),    // Corporate Team Building icon
+  PartnerLanding2:  img('PartnerLanding2.jpg'),   // How it works — Barcelona postcards on wood
 
   Why1:             img('Why1.jpg'),              // Why Partner — left column top
-  Why2:             img('Why2.jpg'),              // Why Partner — left column bottom
+  Why2:             img('Why2.jpg'),              // Contact — Gaudí lizard painting
+
+  HolidayCards1:    img('HolidayCards1.jpg'),     // Hero collage — bottom-left (four Christmas cards)
+  HolidayCards2:    img('HolidayCards2.jpg'),     // Why Partner — right column (tree & snowman cards)
 
   // ── Next Events ───────────────────────────────────────────────────────────
 
