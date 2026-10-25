@@ -29,7 +29,7 @@ const CRAFTS = [
     title: 'Postcards',
     bg: 'bg-[#c2e6f0]',
     icon: <Icon><rect x="3" y="5" width="18" height="14" rx="1.5" /><path d="M14 9h4M14 12h4M14 15h3M11 5v14" /><path d="M5 15l2-3 2 2 1-1" /></Icon>,
-    desc: "Sketch and paint Barcelona's most iconic landmarks onto watercolour postcards. Our signature workshop and the easiest way to start.",
+    desc: "Sketch Barcelona's most iconic landmarks and paint them in acrylics on your own postcard. Our signature workshop and the easiest way to start.",
     tags: ['Barcelona-inspired'],
   },
   {
@@ -201,7 +201,7 @@ export default function Partner() {
       <section className="bg-dark px-8 py-20 md:py-24">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-center">
           <h2 className="font-serif text-3xl md:text-[44px] leading-[1.1] text-[#f2f1ee]">
-            Your company, your theme. <span className="italic text-orange">If you want.</span>
+            Your company, your theme.
           </h2>
           <p className="font-sans text-lg text-[#f2f1ee]/70 leading-relaxed">
             We can build the workshop around your brand, a product launch, a company milestone or a seasonal campaign. That covers colours, motifs, logos or a shared theme. Or keep it simple and let everyone paint what inspires them. Both work beautifully.
@@ -213,7 +213,7 @@ export default function Partner() {
       <section className="bg-cream px-8 py-24 md:py-32">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-12 lg:gap-20 items-center">
           <div className="rounded-xl overflow-hidden shadow-md max-w-[460px] w-full mx-auto lg:-rotate-2">
-            <img src={images.PartnerLanding2} alt="Hand-painted Barcelona postcards on a wooden table" className="w-full aspect-[3/4] object-cover" loading="lazy" decoding="async" />
+            <img src={images.Landing} alt="Hand-painted Barcelona postcards of the Sagrada Família and Arc de Triomf" className="w-full aspect-[3/4] object-cover" loading="lazy" decoding="async" />
           </div>
 
           <div className="flex flex-col gap-12">

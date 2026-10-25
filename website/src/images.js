@@ -33,7 +33,6 @@ const images = {
   // ── Become a Partner ──────────────────────────────────────────────────────
 
   PartnerLanding1:  img('PartnerLanding1.jpg'),   // Hero collage — top-right
-  PartnerLanding2:  img('PartnerLanding2.jpg'),   // How it works — Barcelona postcards on wood
 
   Why1:             img('Why1.jpg'),              // Why Partner — left column top
   Why2:             img('Why2.jpg'),              // Contact — Gaudí lizard painting

@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom'
 import images from '../images'
 
 // ── Cal.com popup booking ──────────────────────────────────────────────────
+const CAL_LINK = 'paint-your-barcelona-jxwpul/workshop'
+
+// Ad blockers and in-app browsers often block Cal's embed script; if its popup never appears, open the booking page instead.
+function openBookingFallback() {
+  setTimeout(() => {
+    if (!document.querySelector('cal-modal-box')) window.location.href = `https://cal.com/${CAL_LINK}`
+  }, 1500)
+}
+
 function BookingSection() {
   useEffect(() => {
     (function (C, A, L) {
@@ -79,9 +88,10 @@ function BookingSection() {
         <div className="h-px bg-white/10" />
 
         <button
-          data-cal-link="paint-your-barcelona-jxwpul/workshop"
+          data-cal-link={CAL_LINK}
           data-cal-namespace="workshop"
           data-cal-config='{"layout":"month_view"}'
+          onClick={openBookingFallback}
           className="w-full bg-terracotta text-white font-sans font-bold text-base px-8 py-4 rounded-xl hover:bg-terracotta/90 transition-colors cursor-pointer"
         >
           Pick a date →
